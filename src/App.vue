@@ -1,18 +1,15 @@
 <template>
     <div id="app" style="margin-top: 10px">
         <van-nav-bar
-                title="Title"
-                left-text="Back"
-                right-text="Button"
-                left-arrow
-                @click-left="onClickLeft"
-                @click-right="onClickRight"
+            title="Title"
+            :left-text="isHome ? 'Back' : 'Back'"
+            right-text="Next"
+            left-arrow
+            class="always_on_top"
+            @click-left="onClickLeft"
+            @click-right="onClickRight"
         />
-        <van-popup v-model="show" round position="bottom"  :style="{ height: height + '%' }" >
-            <h6 style="margin: 10px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores cumque dolores eaque illo quam. Amet ducimus eaque natus perspiciatis quia quo recusandae repellendus veniam. Accusantium dolore eius rerum ut voluptatibus.</h6>
-            <van-divider />
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid commodi delectus deleniti harum illo nam praesentium quasi reprehenderit. Aut doloremque ea esse ex molestias officiis omnis pariatur possimus tempore ut?
-        </van-popup>
+    <router-view />
     </div>
 </template>
 
@@ -21,24 +18,32 @@
 import {Toast} from 'vant';
 
 export default {
-    data() {
-        return {
-            show: false,
-            height: 45
-        }
-    },
-    created() {
 
+    computed: {
+      isHome(){
+          return this.$route.name === 'home'
+      }
     },
     methods: {
         onClickLeft() {
             Toast('Back');
+            this.$router.push({name: 'home'})
+
         },
         onClickRight() {
             Toast('Button');
-            this.show = true
+            this.$router.push({name: 'speaking.questions'})
         },
     }
 }
 </script>
 
+
+
+<style>
+.always_on_top {
+    position: sticky !important;
+    top: 0;
+    z-index: 50;
+}
+</style>
