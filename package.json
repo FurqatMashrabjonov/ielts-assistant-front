@@ -9,6 +9,7 @@
     "start": "node server.js"
   },
   "dependencies": {
+    "axios": "^1.4.0",
     "bootstrap-vue": "^2.23.1",
     "core-js": "^3.8.3",
     "express": "^4.18.2",
@@ -16,7 +17,9 @@
     "register-service-worker": "^1.7.2",
     "vant": "^2.12.54",
     "vue": "^2.7.14",
+    "vue-plugin-axios": "^1.0.14",
     "vue-router": "^3.5.1",
+    "vue-sweetalert2": "^5.0.5",
     "vuesax": "^4.0.1-alpha.25",
     "vuex": "^3.6.2"
   },

@@ -3,22 +3,41 @@ import App from './App.vue'
 import './registerServiceWorker'
 import router from './router'
 import store from './store'
-
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+import Vant from 'vant';
+import VueAxios from "vue-plugin-axios";
+import axios from "axios";
+import VueSweetalert2 from 'vue-sweetalert2'
 
-// Import Bootstrap and BootstrapVue CSS files (order is important)
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
-
-// Make BootstrapVue available throughout your project
-Vue.use(BootstrapVue)
-// Optionally install the BootstrapVue icon components plugin
-Vue.use(IconsPlugin)
-
-import Vant from 'vant';
 import 'vant/lib/index.css';
+import 'sweetalert2/dist/sweetalert2.min.css'
 
+Vue.use(BootstrapVue)
+Vue.use(IconsPlugin)
 Vue.use(Vant);
+
+
+Vue.use(VueSweetalert2)
+
+
+Vue.config.productionTip = false
+
+
+
+Vue.use(VueAxios, {
+  axios,
+  config: {
+    // withCredentials: true,
+    baseURL: 'https://ielts.test/api/v1',
+    headers: {
+      "Accept": "application/json",
+      "Content-Type": "application/json"
+    },
+  }
+});
+
 
 
 

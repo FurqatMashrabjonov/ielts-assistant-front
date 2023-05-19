@@ -11,8 +11,8 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/speaking/questions',
-    name: 'speaking.questions',
+    path: '/speaking/categories',
+    name: 'speaking.categories',
     component: () => import(/* webpackChunkName: "about" */ '../views/Speaking/ListView.vue')
   }
 ]
